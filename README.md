@@ -1,17 +1,5 @@
 # MorseSim
 
-Morse Simulator for practice
+Morse Simulator to imporove transmitting skills
 
-
-Practice transmitting\receiving morse code...
-
-
-# Modules used
-
-pip install tkinter
-
-
-pip install pygame
-
-
-# Will be added soon!
+![alt text](https://github.com/GiorgioRR/Morse-Simulator/blob/master/Screenshot_1.png)
