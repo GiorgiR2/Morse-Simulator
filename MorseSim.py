@@ -156,7 +156,7 @@ def custom_text1():
             output += f"{i.upper()} "
         screen.insert("0.0", output)
         screen.config(state="disabled")
-        vvv_1.set(")
+        vvv_1.set("")
         custom.destroy()
         try_a()
 
