@@ -130,7 +130,7 @@ def random_text1():
     current["text"] = "Current Section: Custom text"
     screen.config(state='normal')
     screen.delete("0.0", END)
-    with open("random_sentences.txt", "r") as rr:
+    with open("data/random_sentences.txt", "r") as rr:
         read = rr.read().split("\n")
         random_sentence = random.choice(read).upper()
     screen.insert("0.0", random_sentence)
@@ -203,7 +203,7 @@ def try_a():
 root = Tk()
 root.title("MorseSim")
 root.geometry("800x280")
-root.iconbitmap("morse_key.ico")
+root.iconbitmap("data/morse_key.ico")
 
 vvv_1 = StringVar()
 screen = Text(root, height=8, width=70)
