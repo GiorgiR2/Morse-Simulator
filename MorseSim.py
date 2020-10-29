@@ -5,7 +5,7 @@ import random
 import threading
 
 code, over = [], 0
-free_label = "You Can Start Typing, Text Will Appear Here.\n(Use grey button or enter key...)"
+free_label = "You Can Start Typing, Text Will Appear Here.\n(Use the gray button or enter key...)"
 CODE = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
         'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
         'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
@@ -49,12 +49,12 @@ def control(spin0, keypress, screen0, text_var0, screen1):
         for letter, code0 in CODE.items():
             code_d.append(code0)
             if code0 == list0:
-                text_var00.set(screen00['text'] + letter)
+                text_var00.set(f"{screen00['text']}{letter}")
     
         if list0 not in code_d:
-            text_var00.set(screen00['text'] + '?')
+            text_var00.set(f"{screen00['text']}?")
         if not stop_event.is_set():
-            text_var00.set(screen00['text'] + ' ')
+            text_var00.set(f"{screen00['text']} ")
 
     def last_abc(arg, stop_event0):
         for i in range(4):
@@ -78,11 +78,11 @@ def control(spin0, keypress, screen0, text_var0, screen1):
         
         wpm = int(spin0.get())
 
-        T = (12 / wpm) / 10  # T is one dit-time in milliseconds.
+        T = (12 / wpm) / 10     # T is one dit-time in milliseconds.
         dot, dash = T, 3 * T
-        TBPOC = T    # Time Between Parts of Character = x
-        TBC = 3 * T  # Time Between Character = 3x
-        TBW = 7 * T  # Time Between Words = 7x
+        TBPOC = T               # Time Between Parts of Character = x
+        TBC = 3 * T             # Time Between Character = 3x
+        TBW = 7 * T             # Time Between Words = 7x
 
         if over == 0:
             text_var0.set("")
@@ -95,7 +95,7 @@ def control(spin0, keypress, screen0, text_var0, screen1):
             if oo >= TBW + 0.07:
                 if not r:
                     line0 += 1
-                    text_var0.set(screen0["text"] + " ")
+                    text_var0.set(f"{screen0['text']} ")
                 r = False
                 change_color = threading.Thread(target=ch_color)
                 change_color.start()
@@ -196,7 +196,7 @@ def try_a():
         r = True
         for tag in screen.tag_names():
             screen.tag_delete(tag)
-    vvv_1.set('')
+    vvv_1.set("")
     stop_event.set()
 
 
@@ -209,7 +209,7 @@ vvv_1 = StringVar()
 screen = Text(root, height=8, width=70)
 screen.insert("0.0", "This window has no function at the moment...")
 screen.config(state="disabled")
-screen_1 = Label(root, textvariable=vvv_1, bg='black', fg='white', height=8, width=80)
+screen_1 = Label(root, textvariable=vvv_1, bg="black", fg="white", height=8, width=80)
 screen.place(x=5, y=5)
 screen_1.place(x=5, y=150)
 vvv_1.set(free_label)
@@ -235,8 +235,8 @@ KeyPress.create_text(34, 18, fill="darkblue", text="KeyPress")
 Label(root, text="<< Morse Key").place(x=655, y=176)
 
 Button(root, text="Clear Text", command=free_pad1, width=8).place(x=580, y=210)
-current = Label(root, text='Current Section: Free Pad', font=('arial 14 point', 11),
-                width=22, borderwidth=7, relief='groove')
+current = Label(root, text="Current Section: Free Pad", font=("arial 14 point", 11),
+                width=22, borderwidth=7, relief="groove")
 current.place(x=580, y=245)
 
 first_control = threading.Thread(target=control, args=(spin, KeyPress, screen_1, vvv_1, screen))
